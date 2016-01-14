@@ -1,0 +1,58 @@
+<div class="news-feed-panel-content">
+  <div class="row news-feed-tabs">
+    <div class="col-xs-5 col-xs-offset-2">
+      <span class="admin-tab"><a class="pointer" ng-click="currentFeedPanel = 'observationsTab'" ng-class="{observationsTab:'admin-nav-active', peopleTab:'admin-nav-inactive'}[currentFeedPanel]">Observations</a></span>
+      <span class="label label-primary label-as-badge" ng-show="observationsChanged > 0">{{observationsChanged}}</span>
+    </div>
+    <div class="col-xs-5">
+      <span class="admin-tab"><a class="admin-tab pointer" ng-click="currentFeedPanel = 'peopleTab'" ng-class="{peopleTab:'admin-nav-active', observationsTab:'admin-nav-inactive'}[currentFeedPanel]">People</a></span>
+      <span class="label label-primary label-as-badge" ng-show="usersChanged > 0">{{usersChanged}}</span>
+    </div>
+  </div>
+
+  <div class="news-items-wrapper">
+    <div class="news-items">
+      <div class="news-items-list">
+        <div class="the-news-items">
+          <div class="feature-panel" ng-if="newObservation">
+            <form-directive form="newObservationForm" form-observation="newObservation"></form-directive>
+          </div>
+
+          <div ng-if="currentFeedPanel == 'observationsTab'">
+            <div class="bucket-panel">
+              <select
+                class="form-control"
+                style="margin-bottom: 0;"
+                ng-model="currentObservationPage"
+                ng-options="observationPages.indexOf(observationPage) as observationPage[0].properties.timestamp | moment: 'fromNow' for observationPage in observationPages">
+              </select>
+            </div>
+
+            <div class="news-feed-item" id="{{observation.id}}"
+              ng-class="(selectedObservation.id == observation.id) && 'active-news-feed-item'"
+              ng-repeat="observation in observationPages[currentObservationPage] track by observation.id">
+              <div observation-news-item="observation" observation-form="event.form" container-element="side-bar"></div>
+            </div>
+          </div>
+          <div ng-if="currentFeedPanel == 'peopleTab'">
+            <div class="bucket-panel">
+              <select
+                class="form-control"
+                style="margin-bottom: 0;"
+                ng-model="currentUserPage"
+                ng-options="userPages.indexOf(userPage) as userPage[0].location.properties.timestamp | moment: 'fromNow' for userPage in userPages">
+              </select>
+            </div>
+
+            <div class="news-feed-item" id="{{user.id}}"
+              ng-class="(selectedUser.id == user.id) && 'active-news-feed-item'"
+              ng-repeat="user in userPages[currentUserPage] track by user.id">
+              <div user-news-item="user" user-news-item-follow="followUserId" container-element="side-bar"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

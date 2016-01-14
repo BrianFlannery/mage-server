@@ -1,0 +1,84 @@
+<div class="admin-nav-gap">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li><i class="fa fa-dashboard"></i><a href="#/admin">&nbsp;&nbsp;Dashboard</a></li>
+      <li class="active">Events</li>
+    </ol>
+  </div>
+</div>
+
+<div class="content-flex">
+
+  <div class="content-inner">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-3">
+
+          <form class="form">
+            <div class="form-group">
+              <label>Search</label>
+              <input type="text" class="form-control" placeholder="event name, description" ng-model="eventSearch" ng-change="page=0">
+            </div>
+          </form>
+          <hr>
+
+          <button class="btn btn-default pull-right" ng-click="reset()">Reset</button>
+        </div>
+
+        <div class="col-md-9">
+          <nav class="navbar navbar-default admin-dashboard-navbar">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand">Events</a>
+              </div>
+
+              <form class="navbar-form navbar-right" role="search">
+                <button type="submit" class="btn btn-default" ng-click="newEvent()">New Event</button>
+              </form>
+            </div>
+          </nav>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="admin-table">
+                <div class="well-item"
+                    ng-repeat="e in (filteredEvents = (events | filter:filterEvents)) | orderBy:'name' | offset: page*itemsPerPage | limitTo:itemsPerPage" >
+
+                    <div class="row pointer" ng-click="gotoEvent(e)">
+                      <div class="col-md-8">
+                        <div class="right-gap pull-left">
+                          <i class="fa fa-calendar admin-layer-icon"></i>
+                        </div>
+                        <div class="strong">{{e.name}}</div>
+                        <div class="muted">{{e.description}}</div>
+                      </div>
+                      <div class="col-md-4">
+                        <button class="btn btn-sm btn-danger pull-right admin-user-button" ng-click="deleteEvent($event, e)">Delete</button>
+                        <button class="btn btn-sm btn-default pull-right" ng-click="editEvent($event, e)">Edit</button>
+                      </div>
+                    </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="pager pull-right">
+                    <li ng-class="{'disabled': page == 0}">
+                      <a href="javascript:void(0);" ng-click="page == 0 || (page=page-1)">&larr; Previous</a>
+                    </li>
+                    <li ng-class="{'disabled': page >= (filteredEvents.length/itemsPerPage) - 1}">
+                      <a href="javascript:void(0);" ng-click="page >= (filteredEvents.length/itemsPerPage) - 1 || (page=page+1)">Next&rarr;</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

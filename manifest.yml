@@ -1,0 +1,14 @@
+---
+applications:
+ - name: MAGE
+   memory: 512M
+   instances: 1
+   domain: int.geointservices.io
+   services:
+     - MongoInstance
+
+   env:
+     S3_BUCKET: mage-s3fs-test
+     S3_USER: AKIAIZQIKEFKJPOKEKWQ
+     S3_PASS: UW9OFHYg1noeojb1o7oC5I/Zq+ENG8n48xXo5nJd
+     S3_MOUNTPOINT: mage

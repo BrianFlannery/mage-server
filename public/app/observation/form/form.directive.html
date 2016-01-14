@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-12">
+    <form name="observationForm" id="myForm" class="form" novalidate>
+        <h4 class="text-center">
+          <strong>{{event.name}}</strong>
+        </h4>
+
+        <div ng-repeat="field in form.fields | filter:{archived: '!true'} | orderBy: 'id'">
+          <field-directive field="field" field-observation="observation"></field-directive>
+        </div>
+        <span>* required</span>
+
+        <div class="top-gap" ng-if="preview !== true">
+          <h4 class="muted">Attachments</h4>
+          <div class="attachment" ng-repeat="attachment in observation.attachments track by attachment.id">
+            <div class="row">
+              <div>
+                <div attachment="attachment" attachment-observation="observation" edit="true"></div>
+              </div>
+            </div>
+          </div>
+
+          <div ng-repeat="(id, file) in attachmentUploads" class="row bottom-gap">
+            <div class="col-md-10" enctype="multipart/form-data" file-upload url="{{observation.url + '/attachments?access_token=' + getToken()}}" allow-upload="uploadAttachments" upload-file-form-name="'attachment'" preview="true" upload-id="id"></div>
+            <span>
+              <button class="btn btn-danger btn-xs top-gap-s" ng-click="removeFileUpload(id)"><i class="fa fa-minus"></i></button>
+            </span>
+          </div>
+
+          <div class="row top-gap-s">
+            <div class="col-md-12">
+              <button class="btn btn-primary" ng-click="addAttachment()" >Add Attachment</button>
+            </div>
+          </div>
+
+          <div class="top-gap-l">
+            <span class="pull-right">
+              <button class="btn btn-default" ng-click="cancelEdit()">Cancel</button>
+              <button class="btn btn-primary" ng-click="save()" ng-disabled="observationForm.$invalid || saving"><i ng-class="{true: 'fa fa-spinner fa-spin', false: 'icon-save'}[saving]"></i> Save</button>
+            </span>
+            <span>
+              <button class="btn btn-danger pull-left" ng-show="observation.id && amAdmin" ng-click="deleteObservation(observation)"><i class="icon-trash"></i> Delete Observation</button>
+            </span>
+          </div>
+        </div>
+    </form>
+  </div>
+</div>

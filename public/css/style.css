@@ -1,0 +1,653 @@
+/*
+  Allow angular.js to be loaded in body, hiding cloaked elements until
+  templates compile.  The !important is important given that there may be
+  other selectors that are more specific or come later and might alter display.
+ */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  color: #6389b3;
+
+  display: flex;
+  flex-direction: column;
+}
+
+html, #map {
+  height: 100%;
+}
+
+header.navbar {
+  margin-bottom: 0px;
+}
+
+.banner-flex {
+  flex: none;
+}
+
+.navbar-flex {
+  flex: none;
+}
+
+.route-content {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-flex {
+  flex: 1;
+  position: relative;
+}
+
+.content-inner {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: auto;
+}
+
+h1, h2, h3, h4, h5 {
+	color: #365F8C;
+}
+
+a {
+	color: #365F8C;
+}
+
+.card {
+  box-sizing: border-box;
+  margin: 8px;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
+}
+
+.card > .card-content {
+  padding: 16px;
+}
+
+.dropdown-menu {
+  z-index: 1031;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-content {
+  background-color: none;
+  border: none;
+}
+
+.modal-header {
+  background: #5278A2;
+  color: #91BDEE;
+}
+
+.modal-header h3 {
+  color: #FFF;
+}
+
+.modal-body {
+  background: #FFF;
+  color: #6389b3;
+}
+
+.modal-footer {
+	background: #5278A2;
+  color: #91BDEE;
+}
+
+.label-as-badge {
+  border-radius: 1em;
+}
+
+.pre-scrollable-small {
+	max-height: 150px;
+	overflow-y: scroll;
+}
+
+.pre-scrollable-large {
+	max-height: 450px;
+	overflow-y: scroll;
+}
+
+.well {
+	border: 1px solid #999999;
+}
+
+.sage-color {
+  color: #324962;
+}
+
+.right-gap-s {
+  margin-right: 5px;
+}
+
+.right-gap {
+  margin-right: 10px;
+}
+
+.top-gap-s {
+  margin-top: 5px;
+}
+
+.top-gap {
+    margin-top: 15px;
+}
+
+.top-gap-l {
+    margin-top: 30px;
+}
+
+.top-gap-xl {
+    margin-top: 50px;
+}
+
+.bottom-gap-s {
+    margin-bottom: 5px;
+}
+
+.bottom-gap {
+    margin-bottom: 15px;
+}
+
+.bottom-gap-l {
+    margin-bottom: 30px;
+}
+
+.bottom-gap-xl {
+    margin-bottom: 50px;
+}
+
+.icon-spacer {
+    margin-right: 5px;
+}
+
+.icon-brand {
+    color: #FFF;
+    background-image: none;
+}
+
+.icon-brand-s {
+	font-size: 75px;
+	color: #324962;
+}
+
+.icon-brand-m {
+	font-size: 125px;
+  color: #365F8C;
+}
+
+.icon-brand-l {
+	font-size: 300px;
+	color: #324962;
+}
+
+/* Overrides */
+.form-horizontal .control-group {
+    margin-bottom: 10px;
+}
+
+textarea {
+  height: 75px;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+.accordion-edit {
+	color: #555;
+}
+
+.icon-sage {
+  color: #5278A2;
+  font-size: 1.2em;
+  background-image: none;
+}
+
+.icon-large {
+	font-size: 5em;
+}
+
+.icon-android {
+  height: 75px;
+  width: 75px;
+  font-size: 64px;
+}
+
+.andriod-color {
+  color: #83C400;
+}
+
+.icon-sage-inverse {
+  color: #FEFEFE;
+  font-size: 1.2em;
+  background-image: none;
+  margin-bottom: 9px;
+}
+
+.marker-tooltip {
+  position: absolute;
+  background-color: gray;
+  color: white;
+  margin-left: 40px;
+  opacity: .7;
+  border-radius: 3px;
+  width: 200px;
+}
+
+#panel-login {
+  margin-top: 20%;
+  margin-left: 45%;
+  padding: 15px 5px;
+  background-color: #94bbe8;
+  width: 250px;
+}
+
+.filter-event {
+	font-family: Roboto;
+	font-weight: 500;
+}
+
+.filter-teams {
+	font-family: Roboto;
+	font-weight: 300;
+	margin-left: 5px;
+}
+
+.filter-interval {
+	font-family: Roboto;
+	font-weight: 500;
+	padding-left: 35px;
+}
+
+@media(max-width:768px){
+  .filter-interval {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .fixed-width-navbar .form-control {
+      display: inline-block;
+      width: 100%;
+      vertical-align: middle;
+  }
+}
+
+.navbar-default .admin-navbar-toggle {
+  border-color: #ddd;
+}
+
+.navbar-default .admin-navbar-toggle .icon-bar {
+    background-color: #888;
+}
+
+.navbar-default .admin-navbar-toggle:focus, .navbar-default .admin-navbar-toggle:hover {
+    background-color: #ddd;
+}
+
+.navbar-default .navbar-text-inverse {
+    color: #777;
+}
+
+.admin-dashboard-navbar .btn-link {
+    color: #777;
+}
+
+.navbar-default .admin-navbar-collapse, .navbar-default .navbar-form {
+    border-color: #e7e7e7;
+}
+
+.badge-accent {
+   background: #FFBF9C;
+}
+
+.badge-notif {
+   position: relative;
+   top: 4px;
+   left: -10px;
+}
+
+/* User management page styles */
+.admin-card {
+  height: 235px;
+  background-color: white;
+}
+
+.admin-dashboard-navbar {
+  background-color: #F5F5F5;
+  border-color: #F0F0F0;
+}
+
+.admin-dashboard-navbar > .container-fluid > .navbar-header > .navbar-brand {
+  color: #204976;
+}
+
+.admin-dashboard-content {
+  padding: 16px;
+}
+
+.admin-dashboard-item {
+  /*color: #FFD9C5;*/
+  line-height: 48px;
+  font-size: 36px;
+  padding: 20px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.admin-nav {
+  height: 40px;
+  background-color: #E2E2E2;
+}
+
+.admin-nav-gap {
+  padding: 20px 0 20px;
+
+}
+
+a.admin-nav-active {
+	border-bottom: 2px solid #345477;
+	color: #345477;
+}
+
+a.admin-nav-inactive {
+	color: #777;
+}
+
+.admin-header {
+	color: #345477;
+	font-size: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+
+.admin-header hr {
+  border-top: 1px solid #345477;
+}
+
+.admin-area {
+  border-right: 1px solid #4F719B;
+  min-height: 350px;
+}
+
+.admin-tab {
+	color: #345477;
+	font-size: 17.5px;
+	font-weight: bold;
+	font-family: SansBetween, Arial, sans-serif;
+	line-height: 20px;
+}
+
+.admin-tab a {
+	padding: 10px;
+}
+
+.admin-table {
+	color: #555;
+	background-color: white;
+	border: 1px solid #F5F5F5;
+}
+
+.admin-table-content {
+  padding: 15px;
+}
+
+.admin-tab:hover a {
+	border-bottom: 2px solid #345477;
+	text-decoration: none;
+	color: #345477;
+}
+
+.admin-row {
+	padding: 7px;
+}
+
+.admin-unsaved {
+  margin-top: 5px;
+}
+
+.admin-user-button {
+  margin-left: 10px;
+}
+
+.admin-active {
+	background-color: #E2E2E2;
+	border-radius: 5px;
+}
+
+.admin-table-delete-btn {
+	margin-right: 15px;
+	float: left;
+}
+
+.admin-device-icon {
+  font-size: 40px;
+}
+
+.admin-layer-icon {
+  padding: 5px 0 5px;
+  font-size: 25px;
+}
+
+.pointer {
+  cursor: pointer; cursor: hand;
+}
+
+.awesome-marker i {
+  font-size: 17px;
+  margin: 10px 0;
+}
+
+div.image-button {
+  position: relative;
+}
+
+div.image-button:hover button {
+  display: block;
+}
+
+div.image-button button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.image-delete {
+	opacity: 0.2;
+}
+
+h4.image-delete {
+	position: absolute;
+  text-align: center;
+	color: white;
+	font-weight: bold;
+}
+
+.awesome-marker-display {
+  position:static;
+}
+
+.feature-title {
+  border-bottom: 1px solid #F6F6F6;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.small-text {
+  font-size: 0.8em;
+}
+
+.well-item {
+	padding: 10px;
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.well-item:last-child {
+	border-bottom: none;
+}
+
+.edit-well {
+  background: #43719F;
+  color: white;
+}
+
+.muted {
+	color: #777777;
+}
+
+.file-custom:before {
+	box-sizing: border-box;
+}
+
+.file-custom {
+	box-sizing: border-box;
+}
+
+.preview-image {
+	width: 35px;
+}
+
+.deleted-border {
+	border: 3px dashed #336699;
+}
+
+.avatar-img {
+	width: 25px;
+	height: 25px;
+	border-radius: 4px;
+}
+
+.img-container {
+	width: 40px;
+	height: 40px;
+	overflow: hidden;
+	margin-right: 10px
+}
+
+.img-container img {
+	width: 100%;
+	height: 100%;
+}
+
+.feed-avatar-img-container {
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+	margin-right: 10px
+}
+
+.feed-avatar-img-container img {
+	width: 100%;
+	height: 100%;
+}
+
+.nav-link:focus {
+	outline: none;
+}
+
+.observation-type {
+	font-size: 17.5px;
+	padding-bottom: 2px;
+}
+
+.observation-variant {
+	font-size: 14px;
+	font-style: italic;
+}
+
+.select2-result-single {
+	margin-left: 0;
+}
+
+.select2-results ul.select2-result-sub {
+	margin-left: 5px;
+	padding-left: 0;
+}
+
+.select2-container .select2-choice {
+	background-image: none;
+}
+
+.select2-container .select2-choice .select2-arrow {
+	background: #fff;
+	background-image: none;
+}
+
+.merged .input-group-addon {
+	background-color: #fff;
+  border-left: 0px;
+  padding: 6px 3px;
+}
+.merged input {
+    border-right: 0px;
+    padding: 6px;
+}
+.merged .input-group-addon + input {
+	border-left: 0px;
+}
+
+.or-container {
+    text-align: center;
+    margin-top: 20px;
+    color: #808080;
+    font-variant: small-caps;
+}
+
+.or-hr {
+    margin-bottom: -20px;
+    height: 0;
+    border: 0;
+    border-top: 1px solid #e6e6e6;
+}
+
+#or {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.btn-google {
+  color: #FFFFFF;
+  background-color: #DC4E41;
+  border-color: #DC4E41;
+}
+
+.btn-google.active, .btn-google.focus, .btn-google:active, .btn-google:focus, .btn-google:hover, .open>.dropdown-toggle.btn-google {
+    color: #FFFFFF;
+    background-color: #DC4E41;
+    border-color: #DC4E41;
+}

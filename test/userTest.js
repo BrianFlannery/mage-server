@@ -46,7 +46,7 @@ var expect = require("chai").expect
      var myCount = user.count(function(err, count){
      });
      expect(user.count).to.have.been.calledOnce;
-     expect(myCount).to.equal(2);
+     expect(myCount).to.equal(3);
      done();
    });
 

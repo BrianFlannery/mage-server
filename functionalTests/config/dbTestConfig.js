@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-, config = require('./testconfig.js');
+, config = require('./testconfig.json');
 
 // Require this file and you will have a mongo connection up
 

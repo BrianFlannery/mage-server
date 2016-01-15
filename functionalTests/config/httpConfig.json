@@ -5,7 +5,7 @@
   },
   "functionalServer":{
     "name": "functionalServer",
-    "location": "http://:4242/api"
+    "location": "http://localhost:6001/api"
   },
   "localServer":{
     "name": "local MAGE server",
@@ -13,8 +13,8 @@
   },
   "httpTestUser":{
     "username": "admin",
-    "userId": "5632845c653ada826dd5583f",
-    "password": "",
-    "uid": "admin"
+    "userId": "5616d6889ab36bcc376c9d0c",
+    "password": "admin",
+    "uid": "12345"
   }
 }

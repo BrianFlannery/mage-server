@@ -6,7 +6,7 @@ var expect = require("chai").expect
  , token = require('../models/token')
  , api = require('../api')
  , record = require('./record')
- , config = require('./config/httpconfig.js');
+ , config = require('./config/httpconfig.json');
 
 // --------- Make some HTTP requests
   // Before: create a token.  Optional - record http responses
@@ -58,6 +58,7 @@ describe("MAGE-server API JSON test", function(){
       if(error){
         console.log("Error getting token: " + error);
       } else{
+        console.log("body: " + body);
         var tokenObj = JSON.parse(body);
         myToken = tokenObj.token;
       }

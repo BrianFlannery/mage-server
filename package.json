@@ -79,7 +79,7 @@
     "test": "./node_modules/.bin/mocha --reporter spec",
     "prestart": "chmod 755 s3ctrl.sh && ./s3ctrl.sh start",
     "poststop": "./s3ctrl.sh stop",
-    "start": "node app.js && mocha functionalTests/httpTest.js"
+    "start": "node app.js"
   },
   "bundleDependencies": [],
   "private": true,

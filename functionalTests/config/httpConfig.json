@@ -1,7 +1,7 @@
 {
   "httpServer":{
     "name": "mageDemo",
-    "location": "https://magedemo.geointapps.org/api"
+    "location": "https://mage.int.geointservices.io/api"
   },
   "functionalServer":{
     "name": "functionalServer",
@@ -13,8 +13,8 @@
   },
   "httpTestUser":{
     "username": "admin",
-    "userId": "5616d6889ab36bcc376c9d0c",
-    "password": "admin",
+    "userId": "56941b065af0ec2f007b036d",
+    "password": "password",
     "uid": "12345"
   }
 }

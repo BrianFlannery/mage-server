@@ -6,7 +6,7 @@ var expect = require("chai").expect
  , token = require('../models/token')
  , api = require('../api')
  , record = require('./record')
- , config = require('./config/httpconfig.json');
+ , config = require('./config/httpConfig.json');
 
 // --------- Make some HTTP requests
   // Before: create a token.  Optional - record http responses

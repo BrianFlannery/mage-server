@@ -103,24 +103,7 @@ describe("MAGE-server API JSON test", function(){
     });
   });
 
-  // ------ Get user info
-  it("Verify response from /api/users/{id}", function(done){
-    var tokenOptions = {
-      url: conUrl + "/users/" + testUser.userId,
-      method: 'GET',
-      headers: {'Authorization': 'Bearer ' + myToken}
-    }
-    console.log("AUTH: " + myToken);
-    request(tokenOptions, function(error, response, body){
-      var jsonObj = JSON.parse(body);
-      var username = jsonObj['username'];
-      //expect(username).to.equal(testUser.username);
-      if(error){
-        console.log("Error from /api/users/{id}: " + error);
-      }
-      done();
-    });
-  });
+  
 
 
 });
